@@ -1,5 +1,5 @@
 {
-  "name": "sous-chef-monorepo",
+  "name": "the-rundown-monorepo",
   "version": "1.0.0",
   "private": true,
   "workspaces": [
@@ -9,7 +9,7 @@
     "dev": "concurrently \"npm run dev:backend\" \"npm run dev:frontend\"",
     "dev:backend": "npm run dev --workspace=backend",
     "dev:frontend": "npm run dev --workspace=frontend",
-    "build": "npm run build --workspace=backend && npm run build --workspace=@sous-chef/api-types && npm run build --workspace=frontend",
+    "build": "npm run build --workspace=backend && npm run build --workspace=@the-rundown/api-types && npm run build --workspace=frontend",
     "lint": "eslint . --ext .ts,.tsx --ignore-pattern packages/backend/src/utils/auth.d.ts --ignore-pattern packages/backend/src/utils/auth.js",
     "lint:fix": "eslint . --ext .ts,.tsx --fix --ignore-pattern packages/backend/src/utils/auth.d.ts --ignore-pattern packages/backend/src/utils/auth.js",
     "migrate:create": "npm run migrate:create --workspace=backend",

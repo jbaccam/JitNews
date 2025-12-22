@@ -27,3 +27,5 @@ logs/
 *.sqlite
 .menv/
 /.cursor
+.claude/
+docs
