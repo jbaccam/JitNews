@@ -110,7 +110,7 @@ const zipCodeSchema = z.object({
   zipCode: z.string().length(5, 'ZIP code must be 5 digits'),
 });
 
-interface ZipCodeResponse {
+export interface ZipCodeResponse {
   city: string;
   state: string;
   county?: string;

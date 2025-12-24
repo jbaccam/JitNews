@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as TestRouteImport } from './routes/test'
 import { Route as GamesRouteImport } from './routes/games'
 import { Route as CivicRouteImport } from './routes/civic'
 import { Route as IndexRouteImport } from './routes/index'
@@ -17,6 +18,11 @@ import { Route as GamesFactOrFictionRouteImport } from './routes/games/fact-or-f
 import { Route as GamesDailyQuizRouteImport } from './routes/games/daily-quiz'
 import { Route as GamesConnectionsRouteImport } from './routes/games/connections'
 
+const TestRoute = TestRouteImport.update({
+  id: '/test',
+  path: '/test',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const GamesRoute = GamesRouteImport.update({
   id: '/games',
   path: '/games',
@@ -57,6 +63,7 @@ export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/civic': typeof CivicRoute
   '/games': typeof GamesRouteWithChildren
+  '/test': typeof TestRoute
   '/games/connections': typeof GamesConnectionsRoute
   '/games/daily-quiz': typeof GamesDailyQuizRoute
   '/games/fact-or-fiction': typeof GamesFactOrFictionRoute
@@ -66,6 +73,7 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/civic': typeof CivicRoute
   '/games': typeof GamesRouteWithChildren
+  '/test': typeof TestRoute
   '/games/connections': typeof GamesConnectionsRoute
   '/games/daily-quiz': typeof GamesDailyQuizRoute
   '/games/fact-or-fiction': typeof GamesFactOrFictionRoute
@@ -76,6 +84,7 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/civic': typeof CivicRoute
   '/games': typeof GamesRouteWithChildren
+  '/test': typeof TestRoute
   '/games/connections': typeof GamesConnectionsRoute
   '/games/daily-quiz': typeof GamesDailyQuizRoute
   '/games/fact-or-fiction': typeof GamesFactOrFictionRoute
@@ -87,6 +96,7 @@ export interface FileRouteTypes {
     | '/'
     | '/civic'
     | '/games'
+    | '/test'
     | '/games/connections'
     | '/games/daily-quiz'
     | '/games/fact-or-fiction'
@@ -96,6 +106,7 @@ export interface FileRouteTypes {
     | '/'
     | '/civic'
     | '/games'
+    | '/test'
     | '/games/connections'
     | '/games/daily-quiz'
     | '/games/fact-or-fiction'
@@ -105,6 +116,7 @@ export interface FileRouteTypes {
     | '/'
     | '/civic'
     | '/games'
+    | '/test'
     | '/games/connections'
     | '/games/daily-quiz'
     | '/games/fact-or-fiction'
@@ -115,11 +127,19 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   CivicRoute: typeof CivicRoute
   GamesRoute: typeof GamesRouteWithChildren
+  TestRoute: typeof TestRoute
   NewsletterConfirmRoute: typeof NewsletterConfirmRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/test': {
+      id: '/test'
+      path: '/test'
+      fullPath: '/test'
+      preLoaderRoute: typeof TestRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/games': {
       id: '/games'
       path: '/games'
@@ -190,6 +210,7 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   CivicRoute: CivicRoute,
   GamesRoute: GamesRouteWithChildren,
+  TestRoute: TestRoute,
   NewsletterConfirmRoute: NewsletterConfirmRoute,
 }
 export const routeTree = rootRouteImport
