@@ -11,7 +11,7 @@ import styles from './CivicSnapshot.module.css';
 
 type Category = 'all' | 'housing' | 'transit' | 'safety' | 'construction' | 'campus' | 'misc';
 
-// When you fetch from Exa AI or your backend, return data matching these interfaces:
+// Data interfaces for civic information:
 export interface CivicDataResponse {
   location: {
     zipCode: string;
@@ -110,98 +110,13 @@ export function CivicSnapshot() {
   });
   const lastFetchedLocationRef = useRef<string | null>(null);
 
-  // Fetch bills and legislators from OpenStates
-  const [bills, setBills] = useState<Array<any>>([]);
-  const [representatives, setRepresentatives] = useState<Array<any>>([]);
-
-  // Geocode the ZIP code first - cache for 1 hour to avoid repeated lookups
-  const {
-    data: geocodeData,
-  } = trpc.openstates.geocodeZip.useQuery(
-    {
-      zipCode: zipParam || DEFAULT_LOCATION.zipCode,
-    },
-    {
-      enabled: !!(zipParam || DEFAULT_LOCATION.zipCode),
-      staleTime: 1000 * 60 * 60, // 1 hour
-      cacheTime: 1000 * 60 * 60 * 24, // 24 hours
-      refetchOnWindowFocus: false,
-      refetchOnMount: false,
-      refetchOnReconnect: false,
-    }
-  );
-
-  // Only fetch bills once we have a state - cache for 10 minutes
-  const {
-    data: billsData,
-    isLoading: isBillsLoading,
-    isError: isBillsError,
-  } = trpc.openstates.searchBills.useQuery(
-    {
-      state: search.state || DEFAULT_LOCATION.state,
-      perPage: 10,
-    },
-    {
-      enabled: !!(search.state || DEFAULT_LOCATION.state),
-      staleTime: 1000 * 60 * 10, // 10 minutes
-      cacheTime: 1000 * 60 * 30, // 30 minutes
-      refetchOnWindowFocus: false,
-      refetchOnMount: false,
-      refetchOnReconnect: false,
-    }
-  );
-
-  // Only fetch legislators once we have coordinates - cache for 10 minutes
-  const {
-    data: legislatorsData,
-    isLoading: isLegislatorsLoading,
-    isError: isLegislatorsError,
-  } = trpc.openstates.findLegislatorsByLocation.useQuery(
-    {
-      lat: geocodeData?.lat || 0,
-      lng: geocodeData?.lng || 0,
-    },
-    {
-      enabled: !!(geocodeData?.lat && geocodeData?.lng),
-      staleTime: 1000 * 60 * 10, // 10 minutes
-      cacheTime: 1000 * 60 * 30, // 30 minutes
-      refetchOnWindowFocus: false,
-      refetchOnMount: false,
-      refetchOnReconnect: false,
-    }
-  );
-
-  // Update bills when data changes - only update if we're not loading
-  useEffect(() => {
-    if (billsData?.bills && !isBillsLoading) {
-      setBills(billsData.bills);
-    } else if (isBillsLoading) {
-      setBills([]); // Clear bills while loading
-    }
-  }, [billsData, isBillsLoading]);
-
-  // Update representatives when data changes - only update if we're not loading
-  useEffect(() => {
-    if (legislatorsData?.legislators && !isLegislatorsLoading) {
-      // Sort representatives: Senate first, then House, alphabetically by name
-      const sorted = [...legislatorsData.legislators].sort((a, b) => {
-        const aTitle = a.current_role?.title?.toLowerCase() || '';
-        const bTitle = b.current_role?.title?.toLowerCase() || '';
-        const aIsSenate = aTitle.includes('senator');
-        const bIsSenate = bTitle.includes('senator');
-
-        // Senate comes first
-        if (aIsSenate && !bIsSenate) return -1;
-        if (!aIsSenate && bIsSenate) return 1;
-
-        // Within same chamber, sort alphabetically by name
-        return a.name.localeCompare(b.name);
-      });
-      setRepresentatives(sorted);
-    } else if (isLegislatorsLoading) {
-      setRepresentatives([]); // Clear representatives while loading
-    }
-  }, [legislatorsData, isLegislatorsLoading]);
+  // Bills and legislators functionality has been removed
+  const [bills] = useState<Array<any>>([]);
+  const [representatives] = useState<Array<any>>([]);
+  const isBillsLoading = false;
+  const isBillsError = false;
+  const isLegislatorsLoading = false;
+  const isLegislatorsError = false;
 
   const locationProfile = useMemo<LocationProfile>(() => {
     // If we have city and state from the URL (from zip lookup), use that
