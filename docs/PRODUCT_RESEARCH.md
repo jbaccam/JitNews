@@ -36,7 +36,7 @@ Sources: [AllSides methodology](https://www.allsides.com/about/media-bias-rating
 
 Semafor separates facts, analysis, opinion, counter-narratives, and global perspectives. Tangle summarizes a central story and then presents strong arguments from the left, right, and center. Axios makes “why it matters” a first-class part of a short briefing.
 
-Useful pattern: a Based News story should have stable blocks—Known, Why it matters, U.S. connection, Views in tension, What is uncertain, and Primary sources.
+Useful pattern: a Based News story should have stable blocks: Known, Why it matters, U.S. connection, Views in tension, What is uncertain, and Primary sources.
 
 Sources: [Semafor's approach](https://www.semafor.com/about), [Tangle's format](https://tangle.substack.com/about), [Axios Smart Brevity](https://help.axios.com/hc/en-us/articles/36222626161435-What-is-the-Axios-Smart-Brevity-style)
 
@@ -75,7 +75,7 @@ applies_to             news | opinion | both
 method_url
 ```
 
-Article-level AI may identify framing signals—loaded language, omitted context relative to the cluster, quoted sources, or whether a piece is news/opinion—but it should not silently overwrite the licensed source rating. AI analysis needs evidence spans, a confidence score, and an “insufficient evidence” outcome.
+Article-level AI may identify framing signals, including loaded language, omitted context relative to the cluster, quoted sources, or whether a piece is news/opinion. It should not silently overwrite the licensed source rating. AI analysis needs evidence spans, a confidence score, and an “insufficient evidence” outcome.
 
 Critical wording:
 

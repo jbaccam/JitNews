@@ -392,7 +392,7 @@ export function CivicSnapshot() {
       </section>
 
       <div className={styles.filtersSection}>
-        <div className={styles.filtersTitle}>— Filter News by Category —</div>
+        <div className={styles.filtersTitle}>Filter News by Category</div>
         <div className={styles.filters}>
           {categories.map((cat) => (
             <button

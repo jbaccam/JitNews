@@ -115,7 +115,7 @@ const QUESTIONS: Array<{
   {
     eyebrow: 'A hard tradeoff',
     prompt: 'Your town has extra money, but it can only do one thing first. What pulls you most?',
-    context: 'Not what sounds impressive—what would you feel proud to defend to a neighbor?',
+    context: 'Not what sounds impressive. What would you feel proud to defend to a neighbor?',
     options: [
       { label: 'Help people struggling now', detail: 'Expand housing, food, health, or student support.', values: ['care', 'fairness'] },
       { label: 'Invest for the long term', detail: 'Protect land, schools, and infrastructure for the future.', values: ['stewardship', 'prosperity'] },
@@ -266,7 +266,7 @@ export function HomeNew() {
           </div>
           <p className={styles.intro}>
             Clear news for people who do not have time to become political experts. See the facts, the disagreement,
-            and the connection to your life—from your street to the rest of the world.
+            and the connection to your life, from your street to the rest of the world.
           </p>
         </section>
 
@@ -296,7 +296,7 @@ export function HomeNew() {
                 <span className={styles.centerLens}>Center</span>
                 <span className={styles.rightLens}>Right</span>
               </div>
-              <p className={styles.methodNote}>Labels describe a source’s editorial pattern—not whether this story is true.</p>
+              <p className={styles.methodNote}>Labels describe a source’s editorial pattern, not whether this story is true.</p>
             </div>
           </article>
 
@@ -327,7 +327,7 @@ export function HomeNew() {
 
         <section className={styles.promise}>
           <p>BASED, NOT BOXED IN</p>
-          <h2>Your values shape the context—not the facts you are allowed to see.</h2>
+          <h2>Your values shape the context, not the facts you are allowed to see.</h2>
           <button type="button" onClick={() => setValuesOpen(true)}>Start a 2-minute values check-in</button>
         </section>
       </main>
@@ -353,14 +353,14 @@ export function HomeNew() {
                   ))}
                 </div>
                 <button className={styles.skipButton} type="button" onClick={() => setQuestionIndex((current) => current + 1)}>
-                  I’m not sure—skip this one
+                  I’m not sure. Skip this one.
                 </button>
               </>
             ) : (
               <div className={styles.results}>
                 <p className={styles.questionCount}>YOUR STARTING POINT</p>
                 <h2 id="values-title">You are more than a left-or-right label.</h2>
-                <p>These themes came through most strongly today. They can change, overlap, and sometimes conflict—that is normal.</p>
+                <p>These themes came through most strongly today. They can change, overlap, and sometimes conflict. That is normal.</p>
                 <div className={styles.valueChips}>{topValues.map((value) => <span key={value}>{value}</span>)}</div>
                 <p className={styles.resultNote}>Based News would use these to explain relevance and compare representatives’ actions. It would never hide a story because it challenges you.</p>
                 <div className={styles.resultActions}>
