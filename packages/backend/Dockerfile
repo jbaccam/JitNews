@@ -17,7 +17,7 @@ COPY packages/backend ./packages/backend
 COPY packages/api-types ./packages/api-types
 
 RUN npm run build --workspace=backend
-RUN npm run build --workspace=@sous-chef/api-types
+RUN npm run build --workspace=@based-news/api-types
 RUN npm prune --omit=dev
 
 FROM node:20-bookworm-slim AS production

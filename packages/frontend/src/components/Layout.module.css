@@ -100,9 +100,17 @@
   padding: 2rem 1rem;
 }
 
+.mainBare {
+  padding: 0;
+}
+
 .container {
   max-width: 1200px;
   margin: 0 auto;
+}
+
+.containerBare {
+  max-width: none;
 }
 
 @media (min-width: 768px) {
@@ -112,5 +120,9 @@
 
   .main {
     padding: 3rem 1.5rem;
+  }
+
+  .mainBare {
+    padding: 0;
   }
 }

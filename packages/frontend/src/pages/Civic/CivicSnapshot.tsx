@@ -6,7 +6,7 @@ import { OpportunityCard } from '../../components/OpportunityCard/OpportunityCar
 import { ExplainModal } from '../../components/ExplainModal/ExplainModal';
 import { NewsletterSignup } from '../../components/NewsletterSignup/NewsletterSignup';
 import { trpc } from '../../lib/trpc';
-import type { RouterOutputs } from '@sous-chef/api-types';
+import type { RouterOutputs } from '@based-news/api-types';
 import styles from './CivicSnapshot.module.css';
 
 type Category = 'all' | 'housing' | 'transit' | 'safety' | 'construction' | 'campus' | 'misc';

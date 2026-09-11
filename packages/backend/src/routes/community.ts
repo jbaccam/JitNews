@@ -30,7 +30,7 @@ const inputSchema = z.object({
   focus: z.enum(['volunteer', 'nonprofit', 'donation']).optional(),
 });
 
-async function fetchCommunityLeads(input: LeadsInput): Promise<LeadsResponse> {
+async function fetchCommunityLeads(_input: LeadsInput): Promise<LeadsResponse> {
   // Community leads functionality has been removed
   return {
     opportunities: [],

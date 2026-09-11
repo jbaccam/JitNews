@@ -22,7 +22,7 @@ export class NewsletterSubscriber {
   confirmed!: boolean;
 
   @Column({ type: 'varchar', length: 255, nullable: true })
-  confirmationToken?: string;
+  confirmationToken?: string | null;
 
   @CreateDateColumn()
   createdAt!: Date;

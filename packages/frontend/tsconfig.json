@@ -17,6 +17,8 @@
     "noEmit": true,
     "jsx": "react-jsx",
     "strict": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
     "noUnusedLocals": true,
     "noUnusedParameters": true,
     "noFallthroughCasesInSwitch": true,
@@ -28,10 +30,10 @@
       "@backend": [
         "../backend/src"
       ],
-      "@the-rundown/api-types": [
+      "@based-news/api-types": [
         "../api-types/src"
       ],
-      "@the-rundown/api-types/*": [
+      "@based-news/api-types/*": [
         "../api-types/src/*"
       ]
     }

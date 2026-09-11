@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from '@tanstack/react-router';
 import { motion, AnimatePresence } from 'framer-motion';
 import styles from './DailyQuiz.module.css';

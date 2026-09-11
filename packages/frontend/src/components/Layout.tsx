@@ -27,11 +27,11 @@ export function Layout({
         <header className={styles.header}>
           <div className={styles.headerContent}>
             <Link to="/" className={styles.logo}>
-              <span>Sous-Teach</span>
+              <span>Based News</span>
             </Link>
             <nav className={styles.nav}>
               <Link to="/games" className={styles.navLink}>
-                Games
+                Learn
               </Link>
             </nav>
             <div className={styles.headerActions}>
@@ -54,8 +54,10 @@ export function Layout({
           </div>
         </header>
       )}
-      <main className={styles.main}>
-        <div className={styles.container}>{children}</div>
+      <main className={`${styles.main} ${!showHeader ? styles.mainBare : ''}`}>
+        <div className={`${styles.container} ${!showHeader ? styles.containerBare : ''}`}>
+          {children}
+        </div>
       </main>
       {showNewsletter && (
         <NewsletterSignup zipCode={zipCode} city={city} state={state} />

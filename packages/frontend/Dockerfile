@@ -21,7 +21,7 @@ ARG VITE_BACKEND_URL
 ENV VITE_BACKEND_URL=${VITE_BACKEND_URL}
 
 RUN npm run build --workspace=backend \
-  && npm run build --workspace=@sous-chef/api-types \
+  && npm run build --workspace=@based-news/api-types \
   && npm run build --workspace=frontend
 
 FROM node:20-bookworm-slim AS production

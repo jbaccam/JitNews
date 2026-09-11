@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState } from 'react';
 import { Link } from '@tanstack/react-router';
 import { motion, AnimatePresence, useMotionValue, useTransform } from 'framer-motion';
 import styles from './FactOrFiction.module.css';
@@ -82,7 +82,6 @@ export function FactOrFiction() {
   const [score, setScore] = useState(0);
   const [answers, setAnswers] = useState<boolean[]>([]);
   const [showResult, setShowResult] = useState(false);
-  const [lastSwipe, setLastSwipe] = useState<SwipeDirection>(null);
   const [gameComplete, setGameComplete] = useState(false);
 
   const x = useMotionValue(0);
@@ -109,21 +108,19 @@ export function FactOrFiction() {
     }
 
     setAnswers([...answers, isCorrect]);
-    setLastSwipe(direction);
     setShowResult(true);
 
     setTimeout(() => {
       setShowResult(false);
       if (currentIndex < MOCK_HEADLINES.length - 1) {
         setCurrentIndex(currentIndex + 1);
-        setLastSwipe(null);
       } else {
         setGameComplete(true);
       }
     }, 2500);
   };
 
-  const handleDragEnd = (event: any, info: any) => {
+  const handleDragEnd = (_event: unknown, info: { offset: { x: number } }) => {
     const threshold = 100;
     if (info.offset.x > threshold) {
       handleSwipe('right');
@@ -137,7 +134,6 @@ export function FactOrFiction() {
     setScore(0);
     setAnswers([]);
     setShowResult(false);
-    setLastSwipe(null);
     setGameComplete(false);
   };
 
