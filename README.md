@@ -2,6 +2,8 @@
 
 Based News is a beginner-friendly civic news platform that helps young adults understand what is happening locally, nationally, and around the world. It presents multiple perspectives, connects issues to a reader's values, and makes it easier to move from understanding to civic action.
 
+For the complete product history, research summary, current implementation status, and next steps, read [`PROJECT_HANDOFF.md`](PROJECT_HANDOFF.md).
+
 ## Product direction
 
 - A modern, mobile-first interface inspired by a torn printed newspaper
